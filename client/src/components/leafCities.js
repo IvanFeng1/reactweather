@@ -1,0 +1,5 @@
+
+var leafCities = ['Abbotsford', 'Airdrie', 'Ajax', 'Aurora', 'Barrie', 'Belleville', 'Blainville', 'Brampton', 'Brantford', 'Brossard', 'Burlington', 'Burnaby', 'Caledon', 'Calgary', 'Cambridge', 'Cape Breton', 'Chatham-Kent', 'Chilliwack', 'Coquitlam', 'Delta', 'Drummondville', 'Edmonton', 'Fredericton', 'Gatineau', 'Granby', 'Grande Prairie', 'Guelph', 'Halifax', 'Halton Hills', 'Hamilton', 'Kamloops', 'Kawartha Lakes', 'Kelowna', 'Kingston', 'Kitchener', 'Langley', 'Laval', 'Lethbridge', 'London', 'Longueuil', 'Maple Ridge', 'Markham', 'Medicine Hat', 'Milton', 'Mirabel', 'Mississauga', 'Moncton', 'Montreal', 'Nanaimo', 'Newmarket', 'Niagara Falls', 'Norfolk County', 'North Bay', 'Oakville', 'Oshawa', 'Ottawa', 'Peterborough', 'Pickering', 'Prince George', 'Quebec', 'Red Deer', 'Regina', 'Repentigny', 'Richmond Hill', 'Saanich', 'Saguenay', 'Sarnia', 'Saskatoon', 'Sault Ste.Marie', 'Sherbrooke', 'Sudbury', 'Surrey', 'Terrebonne', 'Toronto', 'Trois-Rivieres', 'Vancouver', 'Vaughan', 'Victoria', 'Waterloo', 'Welland', 'Westminster',
+    'Whitby', 'Windsor', 'Winnipeg', 'Wood', 'Buffalo']
+leafCities = [... new Set(leafCities)]
+export { leafCities }
