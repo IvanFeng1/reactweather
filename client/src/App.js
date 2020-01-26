@@ -59,6 +59,7 @@ export default function App() {
   }
   return (
     <Fragment>
+      <div>alsdkfjasl;dkfjl;asdjk</div>
       {LoadingIndicator()}
     </Fragment>
   );
