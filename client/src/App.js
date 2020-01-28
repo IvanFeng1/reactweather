@@ -1,7 +1,10 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import 'antd/dist/antd.css'
+import React, { useState, useEffect, Fragment } from "react";
+import 'antd/dist/antd.css';
+import Forcast from "./components/Forcast.js"
+import Homescreen from "./components/Homescreen.js"
+import Header from './components/Header.js'
+import { usePromiseTracker, trackPromise } from "react-promise-tracker";
 import { Row, Col } from 'antd'
-import { usePromiseTracker, trackPromise } from 'react-promise-tracker'
 import Loader from 'react-loader-spinner'
 
 
@@ -58,10 +61,22 @@ export default function App() {
     )
   }
   return (
-    <Fragment>
-      <div>alsdkfjasl;dkfjl;asdjk</div>
-      {LoadingIndicator()}
-    </Fragment>
+    <div className="mainContainer">
+      <Header />
+      <Row >
+        {LoadingIndicator()}
+      </Row>
+      <Row>
+        <Col>
+          <Homescreen enterCity={getCity} />
+        </Col>
+      </Row>
+      <Row type="flex" justify="end">
+        <Col>
+          <Forcast targetCity={weatherData} />
+        </Col>
+      </Row>
+    </div>
   );
 }
 
