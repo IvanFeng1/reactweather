@@ -15,12 +15,13 @@ export default function App() {
     /* (string) -> None
     function that will be binded to this state and will change the state's city depending on the input */
     setCity(city)
+    console.log(city)
   }
   useEffect(() => {
 
     const fetchData = async () => {
       try {
-        const result = await fetch(`/api/`)
+        const result = await fetch(`/api/${city}`)
         var data = await result.json()
         console.log(data)
         if (data.cod === '404') {
