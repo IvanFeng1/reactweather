@@ -20,27 +20,11 @@ export default function App() {
   useEffect(() => {
 
     const fetchData = async () => {
-      try {
-        const result = await fetch(`/api/${city}`)
-        var data = await result.json()
-        console.log(data)
-        if (data.cod === '404') {
-          alert("city not found")
-        }
-        else if (data.cod === '429') {
-          alert('too many requests')
-        }
-        else {
-          setWeaData(data)
-        }
-      } catch (err) {
-        alert(err)
-
-      }
-      trackPromise(
-        fetchData()
-      )
+      // const result = await fetch(`/api/`)
+      const response = await fetch("/api/")
+      const data = response.json()
     }
+    fetchData()
   }, [city])
 
   function LoadingIndicator() {
