@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const path = require('path');
+const fetch = require("node-fetch");
 const port = process.env.PORT || 5000
 const app = express()
 app.use(bodyParser.json());
@@ -15,13 +16,12 @@ if (process.env.NODE_ENV === 'production') {
         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
     });
 }
-app.get('/api/', (request, response) => {
-    console.log("request")
-    // const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
-    // const city = 'toronto'
-    // const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
-    // const rawResp = await fetch(api_url)
-    // const data = await rawResp.json()
-    // response.json(data)
+app.get('/api/', async (request, response) => {
+    const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
+    const city = 'toronto'
+    const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
+    const rawResp = await fetch(api_url)
+    const data = await rawResp.json()
+    response.json(data)
 })
 app.listen(port, () => console.log(`Listening at port ${port}`))

@@ -21,8 +21,9 @@ export default function App() {
 
     const fetchData = async () => {
       // const result = await fetch(`/api/`)
-      const response = await fetch("/api/")
-      const data = response.json()
+      const response = await fetch("api/")
+      const data = await response.json()
+      console.log(data)
     }
     fetchData()
   }, [city])
