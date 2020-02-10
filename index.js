@@ -22,7 +22,7 @@ app.get('/api/', async (request, response) => {
     const city = 'toronto'
     const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
     const rawResp = await fetch(api_url)
-    const data = await rawResp.json()
+    const data = await rawResp.text()
     response.json(data)
 })
 app.listen(port, () => console.log(`Listening at port ${port}`))
