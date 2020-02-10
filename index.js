@@ -18,6 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 app.get('/api/', async (request, response) => {
     const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
+    console.log(process.env.API_KEY)
     const city = 'toronto'
     const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
     const rawResp = await fetch(api_url)

@@ -20,10 +20,16 @@ export default function App() {
   useEffect(() => {
 
     const fetchData = async () => {
-      // const result = await fetch(`/api/`)
-      const response = await fetch("api/")
-      const data = await response.json()
-      console.log(data)
+      try {
+        const response = await fetch("api/")
+        const data = await response.json()
+        console.log(data)
+
+      }
+      catch (err) {
+        alert(err)
+      }
+
     }
     fetchData()
   }, [city])
