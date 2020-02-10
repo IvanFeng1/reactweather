@@ -20,15 +20,11 @@ export default function App() {
   useEffect(() => {
 
     const fetchData = async () => {
-      try {
-        const response = await fetch(`api/${city}`)
-        const data = await response.json()
-        console.log(data)
-        setWeaData(data)
-      }
-      catch (err) {
-        alert(err)
-      }
+
+      const response = await fetch(`api/${city}`)
+      const data = await response.json()
+      console.log(data)
+      setWeaData(data)
 
     }
     fetchData()
