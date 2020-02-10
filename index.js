@@ -11,10 +11,6 @@ if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
 
-    // Handle React routing, return all requests to React app
-    app.get('*', function (req, res) {
-        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    });
     app.get('/api/', async (request, response) => {
         const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
         // const city = request.params.city
@@ -24,6 +20,10 @@ if (process.env.NODE_ENV === 'production') {
         const data = await rawResp.text()
         response.json(data)
     })
+    // Handle React routing, return all requests to React app
+    app.get('*', function (req, res) {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
 }
 app.get('/api/', async (request, response) => {
     const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
