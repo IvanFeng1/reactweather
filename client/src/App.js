@@ -22,6 +22,7 @@ export default function App() {
 
       const response = await fetch(`/api/`)
       const data = await response.text()
+      data = data.replace(/\\/g, '""');
       console.log(data)
     }
     fetchData()
