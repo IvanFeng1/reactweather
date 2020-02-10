@@ -21,10 +21,10 @@ export default function App() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("api/")
+        const response = await fetch(`api/${city}`)
         const data = await response.json()
         console.log(data)
-
+        setWeaData(data)
       }
       catch (err) {
         alert(err)
