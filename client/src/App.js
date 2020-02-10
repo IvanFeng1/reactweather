@@ -20,7 +20,7 @@ export default function App() {
 
     const fetchData = async () => {
 
-      const response = await fetch(`api/${city}`)
+      const response = await fetch(`api/`)
       const data = await response.json()
       console.log(data)
       setWeaData(data)
