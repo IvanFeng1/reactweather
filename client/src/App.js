@@ -28,6 +28,7 @@ export default function App() {
       }
       data = await JSON.parse(data)
       console.log(data)
+      setWeaData(data)
     }
     fetchData()
   }, [city])
