@@ -23,10 +23,10 @@ export default function App() {
       const response = await fetch(`/api/`)
       var data = await response.text()
       data = data.replace(/\\/g, '');
-      console.log(data)
       if (data[0] == "\"" && data[data.length - 1] == "\"") {
         data = data.substring(1, data.length - 1)
       }
+      data = await JSON.parse(data)
       console.log(data)
     }
     fetchData()
