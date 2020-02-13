@@ -39,7 +39,9 @@ export default function App() {
         alert(err)
       }
     }
-    fetchData()
+    trackPromise(
+      fetchData()
+    )
   }, [city])
 
   function LoadingIndicator() {
