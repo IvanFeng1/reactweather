@@ -19,22 +19,25 @@ export default function App() {
   useEffect(() => {
 
     const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/${city}`)
+        console.log(response)
 
-      const response = await fetch(`/api/${city}`)
-      console.log(response)
+        // for some reason, fetching from heroku is weird so I add this to make sure it fetchs the weather data and then parse it into json
+        var data = await response.text()
+        console.log(data)
+        data = data.replace(/\\/g, '');
+        if (data[0] == "\"" && data[data.length - 1] == "\"") {
+          data = data.substring(1, data.length - 1)
+        }
+        data = await JSON.parse(data)
+        console.log(data)
+        //////
 
-      // for some reason, fetching from heroku is weird so I add this to make sure it fetchs the weather data and then parse it into json
-      var data = await response.text()
-      console.log(data)
-      data = data.replace(/\\/g, '');
-      if (data[0] == "\"" && data[data.length - 1] == "\"") {
-        data = data.substring(1, data.length - 1)
+        setWeaData(data)
+      } catch (err) {
+        alert(err)
       }
-      data = await JSON.parse(data)
-      console.log(data)
-      //////
-
-      setWeaData(data)
     }
     fetchData()
   }, [city])
