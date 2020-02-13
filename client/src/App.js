@@ -20,7 +20,7 @@ export default function App() {
 
     const fetchData = async () => {
 
-      const response = await fetch(`/api/`)
+      const response = await fetch(`/api/${city}`)
       console.log(response)
       // for some reason, fetching from heroku is weird so I add this to make sure it fetchs the weather data and then parse it into json
 
