@@ -11,13 +11,13 @@ if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));
 
-    app.get('/api/', async (request, response) => {
+    app.get('/api/:id', async (request, response) => {
         const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
-        // const city = request.params.city
-        const city = 'toronto'
+        const city = request.params.id
+        // const city = 'toronto'
         const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
         const rawResp = await fetch(api_url)
-        const data = await rawResp.text()
+        const data = await rawResp.json()
         response.json(data)
     })
     // Handle React routing, return all requests to React app
@@ -28,13 +28,9 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/api/:id', async (request, response) => {
     const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
     const city = request.params.id
-    console.log(request.query.id)
-    // const city = 'toronto'
     const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
     const rawResp = await fetch(api_url)
     const data = await rawResp.json()
     response.json(data)
 })
-app.listen(process.env.PORT, '0.0.0.0', function (err) {
-    console.log("Started listening on %s", app.url);
-});
+app.listen(port, () => console.log(`Listening at port ${port}`))
