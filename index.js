@@ -12,7 +12,8 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')));
 
     app.get('/api/:id', async (request, response) => {
-        const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
+        // const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
+        const api_key = process.env.API_KEY
         const city = request.params.id
         // const city = 'toronto'
         const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
@@ -27,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 app.get('/api/:id', async (request, response) => {
     // const api_key = '3d0cf5aa23b128c122fc7588b928d1b5'
-    const api_key = process.env.API_KEY
+    const api_key = process.ENV.API_KEY
     const city = request.params.id
     const api_url = `http://api.openweathermap.org/data/2.5/forecast?q=${city},CA&mode=json&appid=${api_key}`
     const rawResp = await fetch(api_url)
