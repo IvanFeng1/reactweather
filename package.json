@@ -17,7 +17,7 @@
     "antd": "^3.26.6",
     "concurrently": "^5.0.2",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "react-loader-spinner": "^3.1.5",
     "react-promise": "^3.0.2",
     "react-promise-tracker": "^2.0.5",
